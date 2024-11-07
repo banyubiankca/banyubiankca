@@ -1,7 +1,7 @@
 /* Font */
 @font-face {
     font-family: 'BebasNeue';
-    src: url("Galerry/css/font/font.zip");
+    src: url(../font/bad_grunge.zip) format('zip');
 }
 
 /* style utama */
