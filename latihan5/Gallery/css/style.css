@@ -136,7 +136,7 @@ h1 {
 }
 
 .overlay:target .next
-.overlay:target .back{
+.overlay:target .back {
     animation: bebasAjah .5s .5s forwards;
 }
 
