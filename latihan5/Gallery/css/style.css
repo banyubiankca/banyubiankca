@@ -1,13 +1,13 @@
 /* Font */
 @font-face {
     font-family: 'BebasNeue';
-    src: url(latihan5/Gallery/font/bad_grunge.zip) format('zip');
+    src: url(../font/alfa-slab.zip) format('zip');
 }
 
 /* style utama */
 body {
     font: 18px/36px'BebasNeue' 'Arial Narrow' arial, sans-serif;
-    background-color: grey;
+    background-color: rgb(161, 161, 161);
 }
 
 h1 {
@@ -15,15 +15,16 @@ h1 {
     margin: 50px 0;
     text-align: center ;
     text-shadow: 1px 1px 2px white;
+    color: rgb(196, 183, 183);
 }
 
 .container {
     width: 600px;
-    background-color: white;
+    background-color: rgb(0, 0, 0);
     margin: auto;
     padding: 50px;
-    box-shadow: 0 0 3px 3px rgba(0, 0, 0, .3);
-    border-radius: 5px;
+    box-shadow: 1px 1px 3px 3px rgb(255, 255, 255);
+    border-radius: 20px;
 
 }
 
@@ -31,22 +32,24 @@ h1 {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-   /* overflow: hidden;*/
+ /* overflow: hidden;*/
     border: solid #666; 
     float: left;
-    margin-right: 10px;
+    margin-right: 20px;
     position: relative;
 }
-
-.Gallery li img{
-    border-radius: 50%;
+.Gallery li ,
+.Gallery li img,
+.Gallery li span{
+    border-radius: 50%; 
 }
+    
 
 .Gallery li span{
     display: block;
-    width: 150px;
-    height: 150px;
-    background-color: rgba(200, 200, 200, .5);
+    width: 120px;
+    height: 120px;
+    background-color: rgba(200, 200, 200, .8);
     border-radius: 50%;
     position: absolute;
     top: 0;
@@ -55,20 +58,141 @@ h1 {
     color: #333;
     text-shadow: 1px 1px 1px #ddd;
     opacity: 0;
+    transform: scale(0) rotate(0);
+    transition: .3s;
 }
 
-.Gallery li a:hover[
+.Gallery li a:hover span{
     opacity: 1;
-]
+    transform: scale(1) rotate(360deg);
+    
 
+}
+    
 .clear {
     clear: both;
 }
 
+/* overlay */
+.overlay {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position:fixed; 
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0);
+    z-index: 9999;
+    transition: .4s;
+    text-align: center;
+    padding: 100px;
+
+}
+
+.overlay:target{
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .5);
 
 
+}
+
+.overlay img {
+    max-height: 100%;
+    box-shadow: 2px 2px 7px rgba(0,0,0,.5);
+}
 
 
+.overlay:target img{
+    animation: zoomDanFade 1s;
+}
+
+.overlay .close{
+    width: auto;
+    height: auto;
+    position: absolute ;
+    top: 50px;
+    left: 50px;
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
+    line-height: 15px;
+    padding: 1px;
+    opacity: 0;
+    
+    
+   
+    
+
+}
+
+
+.overlay:target .close{
+    animation: slideDondFade .5s .5s forwards ;
+}
+
+.overlay:target .next
+.overlay:target .back{
+    animation: bebasAjah .5s .5s forwards;
+}
+
+/* navigasi */
+
+.next .back {
+    width: 57px;
+    height: 57px;
+    background-image: url(../img/next.png);
+    position: absolute;
+    text-indent:  -9999px;
+    top: 40%;
+    margin-left: 50px;
+
+}
+
+.back {
+    background-image: url(../img/next.png);
+}
+
+
+/* animasi */
+@keyframes bebasAjah {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+    
+}
+@keyframes zoomDanFade {
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    
+}
+
+@keyframes slideDownFade {
+    0%{
+        opacity: 0;
+        margin-top: -20px;
+    }
+
+    100%{
+        opacity: 1;
+        margin-top: 0;
+    }
+    
+}
 
 
 
